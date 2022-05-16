@@ -33,9 +33,9 @@ fn handle_connection(mut stream: TcpStream) {
         );
 
         // write it as a byte array to the stream
-    stream.write(response.as_bytes()).unwrap();
-    // close connection
-    stream.flush().unwrap();
+        stream.write(response.as_bytes()).unwrap();
+        // close connection
+        stream.flush().unwrap();
     } else {
         // write 404 
         let status_line = "HTTP/1.1 404 NOT FOUND";
