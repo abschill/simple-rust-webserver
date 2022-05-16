@@ -18,6 +18,7 @@ fn handle_connection(mut stream: TcpStream) {
     let mut buffer = [0; 1024];
     stream.read(&mut buffer).unwrap();
 
+    // this is for a byte string literal the b".." thing
     let get = b"GET / HTTP/1.1\r\n";
 
     // if get request from http
@@ -37,7 +38,7 @@ fn handle_connection(mut stream: TcpStream) {
         // close connection
         stream.flush().unwrap();
     } else {
-        // write 404 
+        // write 404
         let status_line = "HTTP/1.1 404 NOT FOUND";
         let contents = fs::read_to_string("404.html").unwrap();
 
